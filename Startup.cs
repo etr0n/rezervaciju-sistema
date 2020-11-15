@@ -30,11 +30,11 @@ namespace GrozioSalonuISCF
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            //services.AddRazorPages();
 
           //  services.AddDbContext<ApplicationDbContext>(options =>
                   //  options.UseSqlServer(Configuration.GetConnectionString("GrozioSalonuISCFContext")));

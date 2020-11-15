@@ -389,3 +389,8 @@ C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Groz
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\staticwebassets\GrozioSalonuISCF.StaticWebAssets.Manifest.cache
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\staticwebassets\GrozioSalonuISCF.StaticWebAssets.xml
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.genruntimeconfig.cache
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
