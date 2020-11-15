@@ -4,25 +4,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GrozioSalonuISCF.Migrations
 {
-    public partial class schema1 : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Klientai",
-                columns: table => new
-                {
-                    KlientasId = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Vardas = table.Column<string>(nullable: true),
-                    Pavarde = table.Column<string>(nullable: true),
-                    GimimoData = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Klientai", x => x.KlientasId);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Miestas",
                 columns: table => new
@@ -50,6 +35,18 @@ namespace GrozioSalonuISCF.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Vartotojas",
+                columns: table => new
+                {
+                    vartId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vartotojas", x => x.vartId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Salonas",
                 columns: table => new
                 {
@@ -62,7 +59,9 @@ namespace GrozioSalonuISCF.Migrations
                     email = table.Column<string>(nullable: true),
                     ikurimo_data = table.Column<DateTime>(nullable: false),
                     password = table.Column<string>(nullable: true),
-                    MiestasId = table.Column<int>(nullable: false)
+                    MiestasId = table.Column<int>(nullable: false),
+                    vartId = table.Column<int>(nullable: false),
+                    VartotojasvartId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -73,6 +72,12 @@ namespace GrozioSalonuISCF.Migrations
                         principalTable: "Miestas",
                         principalColumn: "MiestasId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Salonas_Vartotojas_VartotojasvartId",
+                        column: x => x.VartotojasvartId,
+                        principalTable: "Vartotojas",
+                        principalColumn: "vartId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -120,6 +125,36 @@ namespace GrozioSalonuISCF.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Redagavimas",
+                columns: table => new
+                {
+                    RedagavimasId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    data = table.Column<DateTime>(nullable: false),
+                    priezastis = table.Column<string>(nullable: true),
+                    tipas = table.Column<string>(nullable: true),
+                    vartId = table.Column<int>(nullable: false),
+                    VartotojasvartId = table.Column<int>(nullable: true),
+                    SalonasId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Redagavimas", x => x.RedagavimasId);
+                    table.ForeignKey(
+                        name: "FK_Redagavimas_Salonas_SalonasId",
+                        column: x => x.SalonasId,
+                        principalTable: "Salonas",
+                        principalColumn: "SalonasId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Redagavimas_Vartotojas_VartotojasvartId",
+                        column: x => x.VartotojasvartId,
+                        principalTable: "Vartotojas",
+                        principalColumn: "vartId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Paslauga",
                 columns: table => new
                 {
@@ -159,6 +194,30 @@ namespace GrozioSalonuISCF.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Atsiliepimas",
+                columns: table => new
+                {
+                    AtsiliepimasId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    aprasymas = table.Column<string>(nullable: true),
+                    paslaugos_busena = table.Column<bool>(nullable: false),
+                    data = table.Column<DateTime>(nullable: false),
+                    vardas = table.Column<string>(nullable: true),
+                    PaslaugosId = table.Column<int>(nullable: false),
+                    PaslaugaId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Atsiliepimas", x => x.AtsiliepimasId);
+                    table.ForeignKey(
+                        name: "FK_Atsiliepimas_Paslauga_PaslaugaId",
+                        column: x => x.PaslaugaId,
+                        principalTable: "Paslauga",
+                        principalColumn: "PaslaugaId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Rezervacija",
                 columns: table => new
                 {
@@ -167,25 +226,31 @@ namespace GrozioSalonuISCF.Migrations
                     proc_prad = table.Column<DateTime>(nullable: false),
                     data = table.Column<DateTime>(nullable: false),
                     busenos = table.Column<bool>(nullable: false),
-                    KlientasId = table.Column<int>(nullable: false),
+                    vartId = table.Column<int>(nullable: false),
+                    VartotojasvartId = table.Column<int>(nullable: true),
                     PaslaugaId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Rezervacija", x => x.nr);
                     table.ForeignKey(
-                        name: "FK_Rezervacija_Klientai_KlientasId",
-                        column: x => x.KlientasId,
-                        principalTable: "Klientai",
-                        principalColumn: "KlientasId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Rezervacija_Paslauga_PaslaugaId",
                         column: x => x.PaslaugaId,
                         principalTable: "Paslauga",
                         principalColumn: "PaslaugaId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Rezervacija_Vartotojas_VartotojasvartId",
+                        column: x => x.VartotojasvartId,
+                        principalTable: "Vartotojas",
+                        principalColumn: "vartId",
+                        onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Atsiliepimas_PaslaugaId",
+                table: "Atsiliepimas",
+                column: "PaslaugaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Darbuotojas_SalonasId",
@@ -213,9 +278,14 @@ namespace GrozioSalonuISCF.Migrations
                 column: "SalonasId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rezervacija_KlientasId",
-                table: "Rezervacija",
-                column: "KlientasId");
+                name: "IX_Redagavimas_SalonasId",
+                table: "Redagavimas",
+                column: "SalonasId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Redagavimas_VartotojasvartId",
+                table: "Redagavimas",
+                column: "VartotojasvartId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rezervacija_PaslaugaId",
@@ -223,21 +293,34 @@ namespace GrozioSalonuISCF.Migrations
                 column: "PaslaugaId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Rezervacija_VartotojasvartId",
+                table: "Rezervacija",
+                column: "VartotojasvartId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Salonas_MiestasId",
                 table: "Salonas",
                 column: "MiestasId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Salonas_VartotojasvartId",
+                table: "Salonas",
+                column: "VartotojasvartId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Atsiliepimas");
+
+            migrationBuilder.DropTable(
                 name: "Islaidos");
 
             migrationBuilder.DropTable(
-                name: "Rezervacija");
+                name: "Redagavimas");
 
             migrationBuilder.DropTable(
-                name: "Klientai");
+                name: "Rezervacija");
 
             migrationBuilder.DropTable(
                 name: "Paslauga");
@@ -253,6 +336,9 @@ namespace GrozioSalonuISCF.Migrations
 
             migrationBuilder.DropTable(
                 name: "Miestas");
+
+            migrationBuilder.DropTable(
+                name: "Vartotojas");
         }
     }
 }

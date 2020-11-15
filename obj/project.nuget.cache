@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0L7Bafl1VQDm9xM4vv5YFVc4N0K9p40Yw+1w1ZIG//6fkLpZAfsYa9/UeRRshaO5VTvVk6K6QsFf2jdKEApDFQ==",
+  "dgSpecHash": "xsA79U7YYmdHRf5OJ6i+GffudpETFpUkrctlj3Zn855fzSRc9SQx9KnH2BuwGgeK45GX6a73XrlWy7qH6EfkUA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Norte\\Documents\\Uni\\3kursas\\1semestras\\IS pagrindai\\GrozioSalonuISCF\\GrozioSalonuISCF.csproj",
+  "projectFilePath": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Norte\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.8\\microsoft.aspnetcore.cryptography.internal.3.1.8.nupkg.sha512",
     "C:\\Users\\Norte\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.8\\microsoft.aspnetcore.cryptography.keyderivation.3.1.8.nupkg.sha512",

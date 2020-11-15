@@ -9413,11 +9413,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Norte\\Documents\\Uni\\3kursas\\1semestras\\IS pagrindai\\GrozioSalonuISCF\\GrozioSalonuISCF.csproj",
+      "projectUniqueName": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
       "projectName": "GrozioSalonuISCF",
-      "projectPath": "C:\\Users\\Norte\\Documents\\Uni\\3kursas\\1semestras\\IS pagrindai\\GrozioSalonuISCF\\GrozioSalonuISCF.csproj",
+      "projectPath": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
       "packagesPath": "C:\\Users\\Norte\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Norte\\Documents\\Uni\\3kursas\\1semestras\\IS pagrindai\\GrozioSalonuISCF\\obj\\",
+      "outputPath": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Norte\\AppData\\Roaming\\NuGet\\NuGet.Config",

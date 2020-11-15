@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace GrozioSalonuISCF.Models
 {
-    public class Admin
+    public class Vartotojas
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int AdminId { get; set; }
-        public string email { get; set; }
+        public int vartId { get; set; }
         public string password { get; set; }
+        public string email { get; set; }
+        public ICollection<Salonas> Salonas { get; set; }
+        public ICollection<Rezervacija> Rezervacija { get; set; }
         public ICollection<Redagavimas> Redagavimas { get; set; }
     }
 }

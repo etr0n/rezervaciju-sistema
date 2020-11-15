@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GrozioSalonuISCF.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201115140657_pridetiRedagavima")]
-    partial class pridetiRedagavima
+    [Migration("20201115193713_schema2")]
+    partial class schema2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,21 +19,35 @@ namespace GrozioSalonuISCF.Migrations
                 .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("GrozioSalonuISCF.Models.Admin", b =>
+            modelBuilder.Entity("GrozioSalonuISCF.Models.Atsiliepimas", b =>
                 {
-                    b.Property<int>("AdminId")
+                    b.Property<int>("AtsiliepimasId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("email")
+                    b.Property<int?>("PaslaugaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PaslaugosId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("aprasymas")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("password")
+                    b.Property<DateTime>("data")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("paslaugos_busena")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("vardas")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.HasKey("AdminId");
+                    b.HasKey("AtsiliepimasId");
 
-                    b.ToTable("Admin");
+                    b.HasIndex("PaslaugaId");
+
+                    b.ToTable("Atsiliepimas");
                 });
 
             modelBuilder.Entity("GrozioSalonuISCF.Models.Darbuotojas", b =>
@@ -87,26 +101,6 @@ namespace GrozioSalonuISCF.Migrations
                     b.HasIndex("SalonasId");
 
                     b.ToTable("Islaidos");
-                });
-
-            modelBuilder.Entity("GrozioSalonuISCF.Models.Klientas", b =>
-                {
-                    b.Property<int>("KlientasId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("GimimoData")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Pavarde")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Vardas")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("KlientasId");
-
-                    b.ToTable("Klientai");
                 });
 
             modelBuilder.Entity("GrozioSalonuISCF.Models.Miestas", b =>
@@ -187,16 +181,7 @@ namespace GrozioSalonuISCF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("AdminId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("KlientasId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SalonasId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SalonoId")
+                    b.Property<int?>("VartotojasvartId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("data")
@@ -208,13 +193,12 @@ namespace GrozioSalonuISCF.Migrations
                     b.Property<string>("tipas")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<int>("vartId")
+                        .HasColumnType("int");
+
                     b.HasKey("RedagavimasId");
 
-                    b.HasIndex("AdminId");
-
-                    b.HasIndex("KlientasId");
-
-                    b.HasIndex("SalonasId");
+                    b.HasIndex("VartotojasvartId");
 
                     b.ToTable("Redagavimas");
                 });
@@ -225,10 +209,10 @@ namespace GrozioSalonuISCF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("KlientasId")
+                    b.Property<int>("PaslaugaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PaslaugaId")
+                    b.Property<int?>("VartotojasvartId")
                         .HasColumnType("int");
 
                     b.Property<bool>("busenos")
@@ -240,11 +224,14 @@ namespace GrozioSalonuISCF.Migrations
                     b.Property<DateTime>("proc_prad")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int>("vartId")
+                        .HasColumnType("int");
+
                     b.HasKey("nr");
 
-                    b.HasIndex("KlientasId");
-
                     b.HasIndex("PaslaugaId");
+
+                    b.HasIndex("VartotojasvartId");
 
                     b.ToTable("Rezervacija");
                 });
@@ -256,6 +243,9 @@ namespace GrozioSalonuISCF.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("MiestasId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VartotojasvartId")
                         .HasColumnType("int");
 
                     b.Property<string>("adresas")
@@ -279,11 +269,34 @@ namespace GrozioSalonuISCF.Migrations
                     b.Property<string>("tel_nr")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<int>("vartId")
+                        .HasColumnType("int");
+
                     b.HasKey("SalonasId");
 
                     b.HasIndex("MiestasId");
 
+                    b.HasIndex("VartotojasvartId");
+
                     b.ToTable("Salonas");
+                });
+
+            modelBuilder.Entity("GrozioSalonuISCF.Models.Vartotojas", b =>
+                {
+                    b.Property<int>("vartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.HasKey("vartId");
+
+                    b.ToTable("Vartotojas");
+                });
+
+            modelBuilder.Entity("GrozioSalonuISCF.Models.Atsiliepimas", b =>
+                {
+                    b.HasOne("GrozioSalonuISCF.Models.Paslauga", "Paslauga")
+                        .WithMany()
+                        .HasForeignKey("PaslaugaId");
                 });
 
             modelBuilder.Entity("GrozioSalonuISCF.Models.Darbuotojas", b =>
@@ -327,36 +340,22 @@ namespace GrozioSalonuISCF.Migrations
 
             modelBuilder.Entity("GrozioSalonuISCF.Models.Redagavimas", b =>
                 {
-                    b.HasOne("GrozioSalonuISCF.Models.Admin", "Admin")
+                    b.HasOne("GrozioSalonuISCF.Models.Vartotojas", "Vartotojas")
                         .WithMany("Redagavimas")
-                        .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GrozioSalonuISCF.Models.Klientas", "Klientas")
-                        .WithMany("Redagavimas")
-                        .HasForeignKey("KlientasId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GrozioSalonuISCF.Models.Salonas", "Salonas")
-                        .WithMany("Redagavimas")
-                        .HasForeignKey("SalonasId");
+                        .HasForeignKey("VartotojasvartId");
                 });
 
             modelBuilder.Entity("GrozioSalonuISCF.Models.Rezervacija", b =>
                 {
-                    b.HasOne("GrozioSalonuISCF.Models.Klientas", "Klientas")
-                        .WithMany("Rezervacija")
-                        .HasForeignKey("KlientasId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("GrozioSalonuISCF.Models.Paslauga", "Paslauga")
                         .WithMany("Rezervacija")
                         .HasForeignKey("PaslaugaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("GrozioSalonuISCF.Models.Vartotojas", "Vartotojas")
+                        .WithMany("Rezervacija")
+                        .HasForeignKey("VartotojasvartId");
                 });
 
             modelBuilder.Entity("GrozioSalonuISCF.Models.Salonas", b =>
@@ -366,6 +365,10 @@ namespace GrozioSalonuISCF.Migrations
                         .HasForeignKey("MiestasId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("GrozioSalonuISCF.Models.Vartotojas", "Vartotojas")
+                        .WithMany("Salonas")
+                        .HasForeignKey("VartotojasvartId");
                 });
 #pragma warning restore 612, 618
         }

@@ -27,6 +27,9 @@ namespace GrozioSalonuISCF.Models
         public Miestas Miestas { get; set; }
         public ICollection<Islaidos> Islaidos { get; set; }
         public ICollection<Darbuotojas> Darbuotojas { get; set; }
-        public ICollection<Redagavimas> Redagavimas { get; set; }
+     
+        //Foreign key kliento
+        public int vartotojasId { get; set; }
+        public Vartotojas Vartotojas { get; set; }
     }
 }

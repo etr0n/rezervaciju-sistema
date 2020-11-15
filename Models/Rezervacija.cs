@@ -17,8 +17,8 @@ namespace GrozioSalonuISCF.Models
         public bool busenos { get; set; }
 
         //Foreign key kliento
-        public int KlientasId { get; set; }
-        public Klientas Klientas { get; set; }
+        public int vartotojasId { get; set; }
+        public Vartotojas Vartotojas { get; set; }
 
         //Foreign key pasluga
         public int PaslaugaId { get; set; }
