@@ -14,5 +14,30 @@ namespace GrozioSalonuISCF.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "Admin")]
+        public IActionResult SalonuSarasas()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult AtaskaituLangas()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult KlientaiRedagavimas()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult SalonaiRedagavimas()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult Redagavimas()
+        {
+            return View();
+        }
     }
 }

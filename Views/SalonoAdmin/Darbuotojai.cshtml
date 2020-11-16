@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewData["Title"] = "Darbuotojai";
+}
+
+<h1>Darbuotojai</h1>
+<span>Peržiūreti darbuotojų redagavimo langą:</span>
+<input type="button" value="Peržiūrėti" onclick="@("window.location.href='" + @Url.Action("DarbuotojuRedagavimas", "SalonoAdmin") + "'");" />
