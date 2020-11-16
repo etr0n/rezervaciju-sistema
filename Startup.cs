@@ -12,6 +12,8 @@ using GrozioSalonuISCF.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GrozioSalonuISCF.Areas.Identity;
+using GrozioSalonuISCF.Areas.Identity.Data;
 
 namespace GrozioSalonuISCF
 {
@@ -38,11 +40,15 @@ namespace GrozioSalonuISCF
 
           //  services.AddDbContext<ApplicationDbContext>(options =>
                   //  options.UseSqlServer(Configuration.GetConnectionString("GrozioSalonuISCFContext")));
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,IServiceProvider services)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -69,6 +75,48 @@ namespace GrozioSalonuISCF
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            CreateUserRoles(services).Wait();
+        }
+        private async Task CreateUserRoles(IServiceProvider serviceProvider)
+        {
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<GrozioSalonuISCFUser>>();
+
+            IdentityResult roleResult;
+            //Adding Addmin Role    
+            var roleCheck = await RoleManager.RoleExistsAsync("Admin");
+            if (!roleCheck)
+            {
+                //create the roles and seed them to the database    
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+
+            roleCheck = await RoleManager.RoleExistsAsync("Salono Admin");
+            if (!roleCheck)
+            {
+                //create the roles and seed them to the database    
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Salono Admin"));
+            }
+
+            roleCheck = await RoleManager.RoleExistsAsync("Klientas");
+            if (!roleCheck)
+            {
+                //create the roles and seed them to the database    
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Klientas"));
+            }
+
+            //Assign Admin role to the main User here we have given our newly loregistered login id for Admin management    
+            GrozioSalonuISCFUser user = await UserManager.FindByEmailAsync("admin@gmail.com");
+            var User = new GrozioSalonuISCFUser();
+            await UserManager.AddToRoleAsync(user, "Admin");
+
+            user = await UserManager.FindByEmailAsync("salonoadmin@gmail.com");
+            await UserManager.AddToRoleAsync(user, "Salono Admin");
+
+            user = await UserManager.FindByEmailAsync("norte@gmail.com");
+            await UserManager.AddToRoleAsync(user, "Klientas");
+
         }
     }
 }

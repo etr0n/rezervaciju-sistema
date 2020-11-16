@@ -394,3 +394,4 @@ C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razo
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs

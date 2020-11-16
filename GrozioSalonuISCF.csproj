@@ -6,6 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\UserMigrations\20201116134056_sedd.cs" />
+    <Compile Remove="Migrations\UserMigrations\20201116134056_sedd.Designer.cs" />
+    <Compile Remove="Migrations\UserMigrations\20201116142529_seedadmin.cs" />
+    <Compile Remove="Migrations\UserMigrations\20201116142529_seedadmin.Designer.cs" />
+    <Compile Remove="Migrations\UserMigrations\20201116143023_adminseed.cs" />
+    <Compile Remove="Migrations\UserMigrations\20201116143023_adminseed.Designer.cs" />
+    <Compile Remove="Migrations\UserMigrations\20201116151057_userroles.cs" />
+    <Compile Remove="Migrations\UserMigrations\20201116151057_userroles.Designer.cs" />
+    <Compile Remove="Migrations\UserMigrations\20201116151149_userroles.cs" />
+    <Compile Remove="Migrations\UserMigrations\20201116151149_userroles.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.9" />

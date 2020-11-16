@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using GrozioSalonuISCF.Areas.Identity.Data;
 using GrozioSalonuISCF.Data;
 using Microsoft.AspNetCore.Hosting;
@@ -15,12 +16,14 @@ namespace GrozioSalonuISCF.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
+            
+
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<GrozioSalonuISCFContext>(options =>
                     options.UseMySql(
                         context.Configuration.GetConnectionString("DefaultConnection")));
                 services.AddRazorPages();
-                services.AddDefaultIdentity<GrozioSalonuISCFUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<GrozioSalonuISCFUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<GrozioSalonuISCFContext>();
                 services.Configure<IdentityOptions>(options =>
                 {
@@ -55,6 +58,10 @@ namespace GrozioSalonuISCF.Areas.Identity
                 });
             
             });
+
+            
         }
+
+     
     }
 }
