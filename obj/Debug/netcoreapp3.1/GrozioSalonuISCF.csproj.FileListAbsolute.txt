@@ -196,7 +196,6 @@ C:\Users\Norte\Documents\Uni\3kursas\1semestras\IS pagrindai\GrozioSalonuISCF\ob
 C:\Users\Norte\Documents\Uni\3kursas\1semestras\IS pagrindai\GrozioSalonuISCF\obj\Debug\netcoreapp3.1\Razor\Views\Klientas\Details.cshtml.g.cs
 C:\Users\Norte\Documents\Uni\3kursas\1semestras\IS pagrindai\GrozioSalonuISCF\obj\Debug\netcoreapp3.1\Razor\Views\Klientas\Edit.cshtml.g.cs
 C:\Users\Norte\Documents\Uni\3kursas\1semestras\IS pagrindai\GrozioSalonuISCF\obj\Debug\netcoreapp3.1\Razor\Views\Klientas\Index.cshtml.g.cs
-C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.csprojAssemblyReference.cache
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.AssemblyInfoInputs.cache
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.AssemblyInfo.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.csproj.CoreCompileInputs.cache

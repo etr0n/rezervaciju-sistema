@@ -11,7 +11,7 @@ namespace GrozioSalonuISCF.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string IslaidosId { get; set; }
+        public int IslaidosId { get; set; }
         public float suma { get; set; }
         public string paskirtis { get; set; }
         public DateTime data { get; set; }

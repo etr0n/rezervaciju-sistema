@@ -4,10 +4,11 @@ using System.Text;
 using GrozioSalonuISCF.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using GrozioSalonuISCF.Areas.Identity.Data;
 
 namespace GrozioSalonuISCF.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<GrozioSalonuISCFUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -22,6 +23,6 @@ namespace GrozioSalonuISCF.Data
         public DbSet<Redagavimas> Redagavimas { get; set; }
         public DbSet<Rezervacija> Rezervacija { get; set; }
         public DbSet<Salonas> Salonas { get; set; }
-        public DbSet<Vartotojas> Vartotojas { get; set; }
+        public DbSet<GrozioSalonuISCFUser> User { get; set; }
     }
 }

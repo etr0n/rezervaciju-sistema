@@ -19,12 +19,12 @@ namespace GrozioSalonuISCF.Areas.Identity
             
 
             builder.ConfigureServices((context, services) => {
-                services.AddDbContext<GrozioSalonuISCFContext>(options =>
+                services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseMySql(
                         context.Configuration.GetConnectionString("DefaultConnection")));
                 services.AddRazorPages();
                 services.AddDefaultIdentity<GrozioSalonuISCFUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
-                    .AddEntityFrameworkStores<GrozioSalonuISCFContext>();
+                    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
 

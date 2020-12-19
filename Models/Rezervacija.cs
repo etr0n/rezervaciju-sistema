@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using GrozioSalonuISCF.Areas.Identity.Data;
 
 namespace GrozioSalonuISCF.Models
 {
@@ -11,14 +12,14 @@ namespace GrozioSalonuISCF.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int nr { get; set; }
+        public int RezervacijaId { get; set; }
         public DateTime proc_prad { get; set; }
         public DateTime data { get; set; }
         public bool busenos { get; set; }
 
-        //Foreign key kliento
-        public int vartotojasId { get; set; }
-        public Vartotojas Vartotojas { get; set; }
+        //Foreign key user
+        public string UserId { get; set; }
+        public virtual GrozioSalonuISCFUser User { get; set; }
 
         //Foreign key pasluga
         public int PaslaugaId { get; set; }

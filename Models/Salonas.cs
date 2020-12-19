@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrozioSalonuISCF.Areas.Identity.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,15 +22,16 @@ namespace GrozioSalonuISCF.Models
         public string password { get; set; }
 
         public ICollection<Paslauga> Paslauga { get; set; }
-        
+        public ICollection<Islaidos> Islaidos { get; set; }
+        public ICollection<Darbuotojas> Darbuotojas { get; set; }
+
         //Foreign key miesto
         public int MiestasId { get; set; }
         public Miestas Miestas { get; set; }
-        public ICollection<Islaidos> Islaidos { get; set; }
-        public ICollection<Darbuotojas> Darbuotojas { get; set; }
-     
-        //Foreign key kliento
-        public int vartotojasId { get; set; }
-        public Vartotojas Vartotojas { get; set; }
+
+        //Foreign key user
+        public string UserId { get; set; }
+        public virtual GrozioSalonuISCFUser User { get; set; }
+
     }
 }
