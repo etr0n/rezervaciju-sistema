@@ -4,7 +4,7 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>Registruotis</h1>
+<h1 localize-content>@ViewData["Title"]</h1>
 
 <div class="row">
     <div class="col-md-4">
@@ -27,7 +27,7 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Registruotis</button>
+            <button type="submit" class="btn btn-primary" localize-content>Register</button>
         </form>
     </div>
     @*<div class="col-md-6 col-md-offset-2">

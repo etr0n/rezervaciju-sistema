@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using GrozioSalonuISCF.Areas.Identity;
 using GrozioSalonuISCF.Areas.Identity.Data;
+using System.Globalization;
+
 
 namespace GrozioSalonuISCF
 {
@@ -32,17 +34,16 @@ namespace GrozioSalonuISCF
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllersWithViews();
+
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            //services.AddRazorPages();
+            services.AddRazorPages();
 
-          //  services.AddDbContext<ApplicationDbContext>(options =>
-                  //  options.UseSqlServer(Configuration.GetConnectionString("GrozioSalonuISCFContext")));
+            //  services.AddDbContext<ApplicationDbContext>(options =>
+            //  options.UseSqlServer(Configuration.GetConnectionString("GrozioSalonuISCFContext")));
 
-
-
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,6 +68,7 @@ namespace GrozioSalonuISCF
 
             app.UseAuthentication();
             app.UseAuthorization();
+       
 
             app.UseEndpoints(endpoints =>
             {
@@ -77,6 +79,8 @@ namespace GrozioSalonuISCF
             });
 
             CreateUserRoles(services).Wait();
+          
+
         }
         private async Task CreateUserRoles(IServiceProvider serviceProvider)
         {

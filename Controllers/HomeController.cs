@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using GrozioSalonuISCF.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using GrozioSalonuISCF.Models;
 
-namespace GrozioSalonuISCF.Controllers
+namespace Sporto_Klubas2.Controllers
 {
     public class HomeController : Controller
     {
