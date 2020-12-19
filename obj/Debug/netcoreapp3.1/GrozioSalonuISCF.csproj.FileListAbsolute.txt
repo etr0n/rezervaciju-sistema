@@ -208,9 +208,6 @@ C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Groz
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.pdb
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
-C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\GrozioSalonuISCF.StaticWebAssets.xml
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\GrozioSalonuISCF.exe
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\GrozioSalonuISCF.deps.json
@@ -414,3 +411,4 @@ C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razo
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Klientas\RezervacijosPatvirtinimas.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Klientas\UzsakytosPaslaugos.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Klientas\KomentaruLangas.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\scopedcss\bundle\GrozioSalonuISCF.styles.css

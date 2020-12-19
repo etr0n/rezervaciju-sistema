@@ -25,6 +25,9 @@ namespace GrozioSalonuISCF.Areas.Identity
                 services.AddRazorPages();
                 services.AddDefaultIdentity<GrozioSalonuISCFUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<GrozioSalonuISCFContext>();
+
+
+
                 services.Configure<IdentityOptions>(options =>
                 {
                     // Password settings.
