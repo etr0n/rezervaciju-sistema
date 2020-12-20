@@ -24,15 +24,7 @@
                         {
                             @if (User.IsInRole("Admin"))
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="SalonuSarasas">Salonų sąrašas</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="KlientaiRedagavimas">Klientų redagavimas</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="SalonaiRedagavimas">Salonų redagavimas</a>
-                                </li>
+                            
                             }
 
                         }
@@ -40,18 +32,7 @@
                         {
                             @if (User.IsInRole("Salono Admin"))
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="SalonoAdmin" asp-action="Ataskaitos">Ataskaitos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="SalonoAdmin" asp-action="Paslaugos">Paslaugos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="SalonoAdmin" asp-action="KlientuRezervacijos">Rezervacijos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="SalonoAdmin" asp-action="Darbuotojai">Darbuotojai</a>
-                                </li>
+                                
                             }
 
                         }
@@ -60,15 +41,11 @@
                             @if (User.IsInRole("Klientas"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Klientas" asp-action="Redagavimas">Paskyros redagavimas</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Paslauga" asp-action="Index">Paslaugos</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Klientas" asp-action="Paslaugos">Paslaugos</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Klientas" asp-action="UzsakytosPaslaugos">Užsakytos paslaugos</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Rezervacijas" asp-action="Index">Užsakytos paslaugos</a>
                                 </li>
                             }
 

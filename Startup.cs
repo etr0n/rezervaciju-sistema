@@ -34,16 +34,12 @@ namespace GrozioSalonuISCF
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
-
-            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
-
             services.AddRazorPages();
+            services.AddDefaultIdentity<GrozioSalonuISCFUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            //  services.AddDbContext<ApplicationDbContext>(options =>
-            //  options.UseSqlServer(Configuration.GetConnectionString("GrozioSalonuISCFContext")));
 
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

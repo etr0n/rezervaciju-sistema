@@ -19,6 +19,7 @@ namespace GrozioSalonuISCF.Models
 
         //Foreign key paslaugos 
         public int PaslaugosId { get; set; }
+        //public int PaslaugaId { get; set; }
         public Paslauga Paslauga { get; set; }
     }
 }

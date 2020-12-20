@@ -1,0 +1,72 @@
+﻿@model GrozioSalonuISCF.Models.Paslauga
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Paslauga</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pavadinimas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pavadinimas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.aprasymas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.aprasymas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.kaina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.kaina)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.trukme)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.trukme)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.priemones)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.priemones)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.rekomendacijos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.rekomendacijos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Darbuotojas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Darbuotojas.DarbuotojasId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Salonas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Salonas.SalonasId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PaslaugosTipas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PaslaugosTipas.PaslaugosTipasId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PaslaugaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
