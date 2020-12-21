@@ -99,7 +99,7 @@ namespace GrozioSalonuISCF.Controllers
             {
                 return NotFound();
             }
-            ViewData["SalonasId"] = new SelectList(_context.Salonas, "SalonasId", "SalonasId", darbuotojas.SalonasId);
+            ViewData["SalonasId"] = new SelectList(_context.Salonas, "SalonasId", "pavadinimas", darbuotojas.SalonasId);
             return View(darbuotojas);
         }
 
@@ -139,7 +139,7 @@ namespace GrozioSalonuISCF.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SalonasId"] = new SelectList(_context.Salonas, "SalonasId", "SalonasId", darbuotojas.SalonasId);
+            ViewData["SalonasId"] = new SelectList(_context.Salonas, "SalonasId", "pavadinimas", darbuotojas.SalonasId);
             return View(darbuotojas);
         }
 

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Redagavimas</h1>
 
 @*<h4>Paslauga</h4>*@
 <hr />
@@ -44,7 +44,7 @@
                 <span asp-validation-for="rekomendacijos" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DarbuotojasId" class="control-label"></label>
+                <label asp-for="DarbuotojasId" class="control-label">Darbuotojas</label>
                 <select asp-for="DarbuotojasId" class="form-control" asp-items="ViewBag.DarbuotojasId">Darbuotojas</select>
                 <span asp-validation-for="DarbuotojasId" class="text-danger"></span>
             </div>
@@ -54,7 +54,7 @@
                 <span asp-validation-for="SalonasId" class="text-danger"></span>
             </div>*@
             <div class="form-group">
-                <label asp-for="PaslaugosTipasId" class="control-label"></label>
+                <label asp-for="PaslaugosTipasId" class="control-label">Paslaugos tipas</label>
                 <select asp-for="PaslaugosTipasId" class="form-control" asp-items="ViewBag.PaslaugosTipasId">Paslauga</select>
                 <span asp-validation-for="PaslaugosTipasId" class="text-danger"></span>
             </div>

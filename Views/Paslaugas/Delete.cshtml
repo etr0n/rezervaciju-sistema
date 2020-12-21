@@ -50,20 +50,20 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Darbuotojas)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Darbuotojas.DarbuotojasId)
-        </dd class>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Darbuotojas.vardas)  @Html.DisplayFor(model => model.Darbuotojas.pavarde)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Salonas)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Salonas.SalonasId)
+            @Html.DisplayFor(model => model.Salonas.pavadinimas)
         </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PaslaugosTipas)
+            @Html.DisplayNameFor(model => model.PaslaugosTipas.pavadinimas)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PaslaugosTipas.PaslaugosTipasId)
+            @Html.DisplayFor(model => model.PaslaugosTipas.pavadinimas)
         </dd class>
     </dl>
     
