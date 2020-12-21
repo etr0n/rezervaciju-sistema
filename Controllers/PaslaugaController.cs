@@ -76,10 +76,10 @@ namespace GrozioSalonuISCF.Controllers
                 var message = new MimeMessage();
                 message.From.Add(new MailboxAddress("Salonas", "salonas631@gmail.com"));
                 message.To.Add(new MailboxAddress("Klientas", "klientas933@gmail.com"));
-                message.Subject = "Rezervacija patvirtins salono admin ir pranes jums";
+                message.Subject = "Rezervacijos infomarcija";
                 message.Body = new TextPart("plain")
                 {
-                    Text = "I am using mailit"
+                    Text = "Patvirtins ten jus blabla"
                 };
 
                 using (var client = new SmtpClient())
