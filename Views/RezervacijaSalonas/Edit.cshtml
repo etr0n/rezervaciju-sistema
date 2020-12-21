@@ -17,13 +17,13 @@
             <div class="form-group">
                 @*<label asp-for="data" class="control-label">Data</label>*@
                 @*@Html.DisplayFor(model => model.data)*@
-                <input type="hidden" asp-for="data" class="form-control"  />
+                <input type="hidden" asp-for="data" class="form-control" />
                 @*<span asp-validation-for="data" class="text-danger" ></span>*@
             </div>
-            <div class="form-group" >
+            <div class="form-group">
                 @*<label asp-for="proc_prad" class="control-label">Procedūros data</label>*@
-             
-                <input type="hidden" asp-for="proc_prad" class="form-control"   />
+
+                <input type="hidden" asp-for="proc_prad" class="form-control" />
                 @*<span asp-validation-for="proc_prad" class="text-danger"></span>*@
             </div>
             <div class="form-group">
@@ -32,21 +32,26 @@
             </label>*@
                 <label asp-for="busena" class="control-label">Rezervacijos būsena</label>
                 <select asp-for="busena" class="form-control">
-                    <option value="Patvirtinta">Patvirtinta</option>
-                    <option value="Atlikta">Atlikta</option>
-                    <option value="Atšaukta">Atšaukta</option>
+                    <option value="Aktyvi">Aktyvi</option>
+                    <option value="Neaktyvi">Neaktyvi</option>
+
                 </select>
             </div>
-            <div class="form-group" >
+            <div class="form-group">
+                @*  <label asp-for="AtsiliepimasId" class="control-label"></label>*@
+                <input asp-for="AtsiliepimasId" class="form-control" type="hidden" asp-items="ViewBag.AtsiliepimasId" />
+                <span asp-validation-for="AtsiliepimasId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 @*<label asp-for="UserId" class="control-label"></label>*@
                 @*@Html.DisplayFor(model => model.User.UserName)*@
                 @*<select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"  >Klientas</select>*@
-                <input type="hidden" asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"/>
+                <input type="hidden" asp-for="UserId" class="form-control" asp-items="ViewBag.UserId" />
                 @*<span asp-validation-for="UserId" class="text-danger"></span>*@
             </div>
-            <div class="form-group" >
+            <div class="form-group">
                 @*<label asp-for="PaslaugaId" class="control-label"> </label>*@
-               
+
                 <input type="hidden" asp-for="PaslaugaId" class="form-control" asp-items="ViewBag.PaslaugaId" />
                 @*<span asp-validation-for="PaslaugaId" class="text-danger"></span>*@
             </div>

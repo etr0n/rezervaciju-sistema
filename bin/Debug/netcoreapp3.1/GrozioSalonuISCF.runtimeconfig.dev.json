@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\edruk\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\edruk\\.nuget\\packages"
+      "C:\\Users\\Norte\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Norte\\.nuget\\packages"
     ]
   }
 }

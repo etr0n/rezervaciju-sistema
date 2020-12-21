@@ -8413,19 +8413,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\edruk\\.nuget\\packages\\": {}
+    "C:\\Users\\Norte\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\edruk\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
+      "projectUniqueName": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
       "projectName": "GrozioSalonuISCF",
-      "projectPath": "C:\\Users\\edruk\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
-      "packagesPath": "C:\\Users\\edruk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\edruk\\Documents\\GitHub\\rezervaciju-sistema\\obj\\",
+      "projectPath": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
+      "packagesPath": "C:\\Users\\Norte\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\edruk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Norte\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8437,6 +8437,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -8448,6 +8449,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "BootstrapNotifications": {
             "target": "Package",
@@ -8518,7 +8520,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

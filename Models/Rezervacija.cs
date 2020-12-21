@@ -17,6 +17,10 @@ namespace GrozioSalonuISCF.Models
         public DateTime data { get; set; }
         public string busena { get; set; }
 
+        //FK atsiliepimo
+        public int AtsiliepimasId { get; set; }
+        public Atsiliepimas Atsiliepimas { get; set; }
+
         //Foreign key user
         public string UserId { get; set; }
         public virtual GrozioSalonuISCFUser User { get; set; }

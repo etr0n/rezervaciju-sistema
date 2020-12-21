@@ -29,8 +29,11 @@
                 Paslauga
             </th>
             <th>
-                 @*@Html.DisplayNameFor(model => model.busenos)*@
-                 Rezervacijos būsena
+                @*@Html.DisplayNameFor(model => model.busenos)*@
+                Rezervacijos būsena
+            </th>
+            <th>
+              Atsiliepimas
             </th>
             <th></th>
         </tr>
@@ -52,6 +55,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.busena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Atsiliepimas.aprasymas)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.RezervacijaId">Būsenos keitimas</a>

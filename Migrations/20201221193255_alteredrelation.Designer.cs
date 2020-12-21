@@ -3,14 +3,16 @@ using System;
 using GrozioSalonuISCF.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GrozioSalonuISCF.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201221193255_alteredrelation")]
+    partial class alteredrelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,6 +92,9 @@ namespace GrozioSalonuISCF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("RezervacijaId")
+                        .HasColumnType("int");
+
                     b.Property<string>("aprasymas")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
@@ -103,6 +108,8 @@ namespace GrozioSalonuISCF.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("AtsiliepimasId");
+
+                    b.HasIndex("RezervacijaId");
 
                     b.ToTable("Atsiliepimas");
                 });
@@ -275,9 +282,6 @@ namespace GrozioSalonuISCF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("AtsiliepimasId")
-                        .HasColumnType("int");
-
                     b.Property<int>("PaslaugaId")
                         .HasColumnType("int");
 
@@ -294,8 +298,6 @@ namespace GrozioSalonuISCF.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("RezervacijaId");
-
-                    b.HasIndex("AtsiliepimasId");
 
                     b.HasIndex("PaslaugaId");
 
@@ -475,6 +477,15 @@ namespace GrozioSalonuISCF.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("GrozioSalonuISCF.Models.Atsiliepimas", b =>
+                {
+                    b.HasOne("GrozioSalonuISCF.Models.Rezervacija", "Rezervacija")
+                        .WithMany("Atsiliepimas")
+                        .HasForeignKey("RezervacijaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("GrozioSalonuISCF.Models.Darbuotojas", b =>
                 {
                     b.HasOne("GrozioSalonuISCF.Models.Salonas", "Salonas")
@@ -523,12 +534,6 @@ namespace GrozioSalonuISCF.Migrations
 
             modelBuilder.Entity("GrozioSalonuISCF.Models.Rezervacija", b =>
                 {
-                    b.HasOne("GrozioSalonuISCF.Models.Atsiliepimas", "Atsiliepimas")
-                        .WithMany("Rezervacija")
-                        .HasForeignKey("AtsiliepimasId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("GrozioSalonuISCF.Models.Paslauga", "Paslauga")
                         .WithMany("Rezervacija")
                         .HasForeignKey("PaslaugaId")

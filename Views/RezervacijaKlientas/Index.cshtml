@@ -18,7 +18,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.busena)
             </th>
-        
+
             <th>
                 @Html.DisplayNameFor(model => model.Paslauga)
             </th>
@@ -26,7 +26,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.proc_prad)
@@ -41,14 +42,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Paslauga.pavadinimas)
             </td>
-            @if (item.busena == "Neaktyvi" || item.busena =="Ivykdyta")
+
+            @if (item.busena == "Neaktyvi" && item.Atsiliepimas.paslaugos_busena == true)
             {
                 <td>
-                    <a asp-action="Create" asp-route-id="@item.PaslaugaId">Palikti atsiliepima</a>
+                    <a asp-action="Create" asp-route-id="@item.RezervacijaId">Palikti atsiliepima</a>
+                </td>
+            }
+            @if (item.busena == "Aktyvi")
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.RezervacijaId">Atšaukti</a>
                 </td>
             }
 
         </tr>
-}
+        }
     </tbody>
 </table>

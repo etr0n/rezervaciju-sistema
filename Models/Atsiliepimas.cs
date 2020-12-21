@@ -17,9 +17,9 @@ namespace GrozioSalonuISCF.Models
         public DateTime data { get; set; }
         public string vardas { get; set; }
 
-        //Foreign key paslaugos 
-        public int PaslaugaId { get; set; }
-        public Paslauga Paslauga { get; set; }
+        public ICollection<Rezervacija> Rezervacija { get; set; }
+      
+
     }
 }
 

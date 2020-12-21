@@ -25,7 +25,7 @@ namespace GrozioSalonuISCF.Controllers
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var salonasId = _context.Salonas.Where(s => s.UserId == userId).First().SalonasId;
-            var applicationDbContext = _context.Rezervacija.Include(r => r.Paslauga).Include(r => r.User).Where(r => r.Paslauga.SalonasId == salonasId);
+            var applicationDbContext = _context.Rezervacija.Include(r => r.Atsiliepimas).Include(r => r.Paslauga).Include(r => r.User).Where(r => r.Paslauga.SalonasId == salonasId);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -90,6 +90,7 @@ namespace GrozioSalonuISCF.Controllers
             }
             ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "pavadinimas", rezervacija.PaslaugaId);
             ViewData["UserId"] = new SelectList(_context.User, "Id", "UserName", rezervacija.UserId);
+            ViewData["AtsiliepimasId"] = new SelectList(_context.User, "AtsiliepimasId", "AtsiliepimasId", rezervacija.AtsiliepimasId);
             return View(rezervacija);
         }
 
@@ -98,7 +99,7 @@ namespace GrozioSalonuISCF.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RezervacijaId,proc_prad,data,busena,UserId,PaslaugaId")] Rezervacija rezervacija)
+        public async Task<IActionResult> Edit(int id, [Bind("RezervacijaId,proc_prad,data,busena,UserId,PaslaugaId,AtsiliepimasId")] Rezervacija rezervacija)
         {
             if (id != rezervacija.RezervacijaId)
             {
@@ -127,6 +128,7 @@ namespace GrozioSalonuISCF.Controllers
             }
             ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "pavadinimas", rezervacija.PaslaugaId);
             ViewData["UserId"] = new SelectList(_context.User, "Id", "UserName", rezervacija.UserId);
+            ViewData["AtsiliepimasId"] = new SelectList(_context.User, "AtsiliepimasId", "AtsiliepimasId", rezervacija.AtsiliepimasId);
             return View(rezervacija);
         }
 

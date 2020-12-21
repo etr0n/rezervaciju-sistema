@@ -29,6 +29,10 @@ namespace GrozioSalonuISCF.Controllers
             var applicationDbContext = _context.Paslauga.Include(p => p.Darbuotojas).Include(p => p.PaslaugosTipas).Include(p => p.Salonas);
             return View(await applicationDbContext.ToListAsync());
         }
+        public async Task<IActionResult> Patvirtinimas()
+        {
+            return View();
+        }
 
         // GET: Paslauga/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -61,7 +65,7 @@ namespace GrozioSalonuISCF.Controllers
      
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RezervacijaId,proc_prad,data,busena,UserId,PaslaugaId")] Rezervacija rezervacija, int id)
+        public async Task<IActionResult> Create([Bind("RezervacijaId,proc_prad,data,busena,UserId,PaslaugaId,AtsiliepimasId")] Rezervacija rezervacija, int id)
         {
 
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -69,6 +73,7 @@ namespace GrozioSalonuISCF.Controllers
             rezervacija.busena = "Aktyvi";
             rezervacija.PaslaugaId = id;
             rezervacija.UserId = userId;
+            rezervacija.AtsiliepimasId = 1;
             if (ModelState.IsValid)
             {
                 _context.Add(rezervacija);
@@ -89,7 +94,7 @@ namespace GrozioSalonuISCF.Controllers
                     client.Send(message);
                     client.Disconnect(true);
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Patvirtinimas));
             }
             /* ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId", rezervacija.PaslaugaId);
              ViewData["UserId"] = new SelectList(_context.User, "Id", "Id", rezervacija.UserId);*/

@@ -7,28 +7,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GrozioSalonuISCF.Data;
 using GrozioSalonuISCF.Models;
-using System.Security.Claims;
 
 namespace GrozioSalonuISCF.Controllers
 {
-    public class RezervacijasController : Controller
+    public class RezervacijaKlientasController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public RezervacijasController(ApplicationDbContext context)
+        public RezervacijaKlientasController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Rezervacijas
+        // GET: RezervacijaKlientas
         public async Task<IActionResult> Index()
         {
-            var userId2 = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var applicationDbContext = _context.Rezervacija.Include(r => r.Paslauga).Include(r => r.User).Where(r => r.UserId == userId2);
+            var applicationDbContext = _context.Rezervacija.Include(r => r.Atsiliepimas).Include(r => r.Paslauga).Include(r => r.User);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Rezervacijas/Details/5
+        // GET: RezervacijaKlientas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -37,6 +35,7 @@ namespace GrozioSalonuISCF.Controllers
             }
 
             var rezervacija = await _context.Rezervacija
+                .Include(r => r.Atsiliepimas)
                 .Include(r => r.Paslauga)
                 .Include(r => r.User)
                 .FirstOrDefaultAsync(m => m.RezervacijaId == id);
@@ -48,59 +47,63 @@ namespace GrozioSalonuISCF.Controllers
             return View(rezervacija);
         }
 
-        // GET: Rezervacijas/Create
-        /* public IActionResult Create()
-         {
-             ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId");
-             ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
-             return View();
-         }
+        // GET: RezervacijaKlientas/Create
+        public IActionResult Create()
+        {
+            ViewData["AtsiliepimasId"] = new SelectList(_context.Atsiliepimas, "AtsiliepimasId", "AtsiliepimasId");
+            ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId");
+            ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
+            return View();
+        }
 
-         // POST: Rezervacijas/Create
-         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-         [HttpPost]
+        // POST: RezervacijaKlientas/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /* [HttpPost]
          [ValidateAntiForgeryToken]
-         public async Task<IActionResult> Create([Bind("RezervacijaId,proc_prad,data,busenos,UserId,PaslaugaId")] Rezervacija rezervacija)
+         public async Task<IActionResult> Create([Bind("RezervacijaId,proc_prad,data,busena,AtsiliepimasId,UserId,PaslaugaId")] Rezervacija rezervacija, int id)
          {
-            // rezervacija.busenos = true;
+             rezervacija.RezervacijaId = id;
+             rezervacija.Atsiliepimas.paslaugos_busena = false;
+             rezervacija.Atsiliepimas.data = DateTime.Now ;
              if (ModelState.IsValid)
              {
                  _context.Add(rezervacija);
                  await _context.SaveChangesAsync();
                  return RedirectToAction(nameof(Index));
              }
+             ViewData["AtsiliepimasId"] = new SelectList(_context.Atsiliepimas, "AtsiliepimasId", "AtsiliepimasId", rezervacija.AtsiliepimasId);
              ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId", rezervacija.PaslaugaId);
              ViewData["UserId"] = new SelectList(_context.User, "Id", "Id", rezervacija.UserId);
              return View(rezervacija);
          }*/
-        // GET: Atsiliepimas/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Atsiliepimas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AtsiliepimasId,aprasymas,paslaugos_busena,data,vardas,PaslaugaId")] Atsiliepimas atsiliepimas, int id, [Bind("RezervacijaId,proc_prad,data,busenos,UserId,PaslaugaId")] Rezervacija rezervacija)
+        public async Task<IActionResult> Create([Bind("AtsiliepimasId,aprasymas,paslaugos_busena,data,vardas,RezervacijaId")] Atsiliepimas atsiliepimas, int id)
         {
-            atsiliepimas.PaslaugaId = id;
+            var rezervacija = await _context.Rezervacija.FindAsync(id);
+
             atsiliepimas.data = DateTime.Now;
             atsiliepimas.paslaugos_busena = false;
-            rezervacija.busena = "Ivykdyta";
+          
             if (ModelState.IsValid)
             {
+               
                 _context.Add(atsiliepimas);
+               
+
+                await _context.SaveChangesAsync();
+               
+
+                rezervacija.AtsiliepimasId = atsiliepimas.AtsiliepimasId;
+                _context.Update(rezervacija);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(atsiliepimas);
         }
 
-        // GET: Rezervacijas/Edit/5
+        // GET: RezervacijaKlientas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -113,17 +116,18 @@ namespace GrozioSalonuISCF.Controllers
             {
                 return NotFound();
             }
+            ViewData["AtsiliepimasId"] = new SelectList(_context.Atsiliepimas, "AtsiliepimasId", "AtsiliepimasId", rezervacija.AtsiliepimasId);
             ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId", rezervacija.PaslaugaId);
             ViewData["UserId"] = new SelectList(_context.User, "Id", "Id", rezervacija.UserId);
             return View(rezervacija);
         }
 
-        // POST: Rezervacijas/Edit/5
+        // POST: RezervacijaKlientas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RezervacijaId,proc_prad,data,busenos,UserId,PaslaugaId")] Rezervacija rezervacija)
+        public async Task<IActionResult> Edit(int id, [Bind("RezervacijaId,proc_prad,data,busena,AtsiliepimasId,UserId,PaslaugaId")] Rezervacija rezervacija)
         {
             if (id != rezervacija.RezervacijaId)
             {
@@ -150,12 +154,13 @@ namespace GrozioSalonuISCF.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AtsiliepimasId"] = new SelectList(_context.Atsiliepimas, "AtsiliepimasId", "AtsiliepimasId", rezervacija.AtsiliepimasId);
             ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId", rezervacija.PaslaugaId);
             ViewData["UserId"] = new SelectList(_context.User, "Id", "Id", rezervacija.UserId);
             return View(rezervacija);
         }
 
-        // GET: Rezervacijas/Delete/5
+        // GET: RezervacijaKlientas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -164,6 +169,7 @@ namespace GrozioSalonuISCF.Controllers
             }
 
             var rezervacija = await _context.Rezervacija
+                .Include(r => r.Atsiliepimas)
                 .Include(r => r.Paslauga)
                 .Include(r => r.User)
                 .FirstOrDefaultAsync(m => m.RezervacijaId == id);
@@ -175,7 +181,7 @@ namespace GrozioSalonuISCF.Controllers
             return View(rezervacija);
         }
 
-        // POST: Rezervacijas/Delete/5
+        // POST: RezervacijaKlientas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

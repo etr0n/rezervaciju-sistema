@@ -20,7 +20,7 @@ namespace GrozioSalonuISCF.Models
         public string rekomendacijos { get; set; }
 
         public ICollection<Rezervacija> Rezervacija { get; set; }
-        public ICollection<Atsiliepimas> Atsiliepimas { get; set; }
+        //public ICollection<Atsiliepimas> Atsiliepimas { get; set; }
 
         //Foreign key darbuotojo
         public int DarbuotojasId { get; set; }
