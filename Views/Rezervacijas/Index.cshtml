@@ -16,11 +16,9 @@
                 @Html.DisplayNameFor(model => model.data)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.busenos)
+                @Html.DisplayNameFor(model => model.busena)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
+        
             <th>
                 @Html.DisplayNameFor(model => model.Paslauga)
             </th>
@@ -37,21 +35,18 @@
                 @Html.DisplayFor(modelItem => item.data)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.busenos)
+                @Html.DisplayFor(modelItem => item.busena)
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
+                @Html.DisplayFor(modelItem => item.Paslauga.pavadinimas)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Paslauga.PaslaugaId)
-            </td>
-            <td>
-            @*       <td>
-        <a asp-action="Edit" asp-route-id="@item.RezervacijaId">Edit</a> |
-        <a asp-action="Details" asp-route-id="@item.RezervacijaId">Details</a> |
-        <a asp-action="Delete" asp-route-id="@item.RezervacijaId">Delete</a>*@
-            <a asp-action="Create" asp-route-id="@item.PaslaugaId">Palikti atsiliepima</a>
-            </td>
+            @if (item.busena == "Neaktyvi" || item.busena =="Ivykdyta")
+            {
+                <td>
+                    <a asp-action="Create" asp-route-id="@item.PaslaugaId">Palikti atsiliepima</a>
+                </td>
+            }
 
         </tr>
 }

@@ -1,4 +1,4 @@
-﻿@model GrozioSalonuISCF.Models.Rezervacija
+﻿@model GrozioSalonuISCF.Models.Atsiliepimas
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,36 +6,36 @@
 
 <h1>Edit</h1>
 
-<h4>Rezervacija</h4>
+<h4>Atsiliepimas</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="RezervacijaId" />
+            <input type="hidden" asp-for="AtsiliepimasId" />
             <div class="form-group">
-                <label asp-for="proc_prad" class="control-label"></label>
-                <input asp-for="proc_prad" class="form-control" />
-                <span asp-validation-for="proc_prad" class="text-danger"></span>
+                <label asp-for="aprasymas" class="control-label"></label>
+                <input asp-for="aprasymas" class="form-control" />
+                <span asp-validation-for="aprasymas" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="paslaugos_busena" /> @Html.DisplayNameFor(model => model.paslaugos_busena)
+                </label>
             </div>
             <div class="form-group">
                 <label asp-for="data" class="control-label"></label>
                 <input asp-for="data" class="form-control" />
                 <span asp-validation-for="data" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="busena" /> @Html.DisplayNameFor(model => model.busena)
-                </label>
-            </div>
             <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                <span asp-validation-for="UserId" class="text-danger"></span>
+                <label asp-for="vardas" class="control-label"></label>
+                <input asp-for="vardas" class="form-control" />
+                <span asp-validation-for="vardas" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PaslaugaId" class="control-label"></label>
-                <select asp-for="PaslaugaId" class="form-control" asp-items="ViewBag.PaslaugaId"></select>
+                <input asp-for="PaslaugaId" class="form-control" />
                 <span asp-validation-for="PaslaugaId" class="text-danger"></span>
             </div>
             <div class="form-group">

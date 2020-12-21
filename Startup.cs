@@ -117,6 +117,9 @@ namespace GrozioSalonuISCF
             user = await UserManager.FindByEmailAsync("norte@gmail.com");
             await UserManager.AddToRoleAsync(user, "Klientas");
 
+            user = await UserManager.FindByEmailAsync("ieva@gmail.com");
+            await UserManager.AddToRoleAsync(user, "Klientas");
+
         }
     }
 }

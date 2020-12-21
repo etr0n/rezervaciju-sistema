@@ -19,7 +19,6 @@ namespace GrozioSalonuISCF.Models
         public string tel_nr { get; set; }
         public string email { get; set; }
         public DateTime ikurimo_data { get; set; }
-        public string password { get; set; }
 
         public ICollection<Paslauga> Paslauga { get; set; }
         public ICollection<Islaidos> Islaidos { get; set; }

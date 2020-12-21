@@ -391,7 +391,6 @@ C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razo
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\scopedcss\bundle\GrozioSalonuISCF.styles.css
-C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.csprojAssemblyReference.cache
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs
@@ -410,3 +409,9 @@ C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razo
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Paslauga\Details.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Paslauga\Edit.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Paslauga\Index.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Atsiliepimas\Create.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Atsiliepimas\Delete.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Atsiliepimas\Details.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Atsiliepimas\Edit.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Atsiliepimas\Index.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.csprojAssemblyReference.cache

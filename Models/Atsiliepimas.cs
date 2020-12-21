@@ -18,8 +18,7 @@ namespace GrozioSalonuISCF.Models
         public string vardas { get; set; }
 
         //Foreign key paslaugos 
-        public int PaslaugosId { get; set; }
-        //public int PaslaugaId { get; set; }
+        public int PaslaugaId { get; set; }
         public Paslauga Paslauga { get; set; }
     }
 }

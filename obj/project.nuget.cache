@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "yJ3WTCwPW7oUUAB9WCVqSD/8t504SNPS0im4eLAz9Hp4f3vA/A0rQiW/6s20v6cVDXJnTrbAu5o1JglDu/YzPw==",
+  "dgSpecHash": "/ccSuhnZZqqXUOOZRRoVb2B9QhSO/SCAbzWWxfNHP6N90r9xAeS/Y4bjSEO0anRVvwN/z7sUGLd6VT3os8WniA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Norte\\.nuget\\packages\\bootstrap\\3.0.0\\bootstrap.3.0.0.nupkg.sha512",
+    "C:\\Users\\Norte\\.nuget\\packages\\bootstrapnotifications\\0.3.2\\bootstrapnotifications.0.3.2.nupkg.sha512",
+    "C:\\Users\\Norte\\.nuget\\packages\\jquery\\1.9.0\\jquery.1.9.0.nupkg.sha512",
     "C:\\Users\\Norte\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.10\\microsoft.aspnetcore.cryptography.internal.3.1.10.nupkg.sha512",
     "C:\\Users\\Norte\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.10\\microsoft.aspnetcore.cryptography.keyderivation.3.1.10.nupkg.sha512",
     "C:\\Users\\Norte\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.8\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.8.nupkg.sha512",

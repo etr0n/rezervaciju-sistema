@@ -49,30 +49,55 @@ namespace GrozioSalonuISCF.Controllers
         }
 
         // GET: Rezervacijas/Create
+        /* public IActionResult Create()
+         {
+             ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId");
+             ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
+             return View();
+         }
+
+         // POST: Rezervacijas/Create
+         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         [HttpPost]
+         [ValidateAntiForgeryToken]
+         public async Task<IActionResult> Create([Bind("RezervacijaId,proc_prad,data,busenos,UserId,PaslaugaId")] Rezervacija rezervacija)
+         {
+            // rezervacija.busenos = true;
+             if (ModelState.IsValid)
+             {
+                 _context.Add(rezervacija);
+                 await _context.SaveChangesAsync();
+                 return RedirectToAction(nameof(Index));
+             }
+             ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId", rezervacija.PaslaugaId);
+             ViewData["UserId"] = new SelectList(_context.User, "Id", "Id", rezervacija.UserId);
+             return View(rezervacija);
+         }*/
+        // GET: Atsiliepimas/Create
         public IActionResult Create()
         {
-            ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId");
-            ViewData["UserId"] = new SelectList(_context.User, "Id", "Id");
             return View();
         }
 
-        // POST: Rezervacijas/Create
+        // POST: Atsiliepimas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RezervacijaId,proc_prad,data,busenos,UserId,PaslaugaId")] Rezervacija rezervacija)
+        public async Task<IActionResult> Create([Bind("AtsiliepimasId,aprasymas,paslaugos_busena,data,vardas,PaslaugaId")] Atsiliepimas atsiliepimas, int id, [Bind("RezervacijaId,proc_prad,data,busenos,UserId,PaslaugaId")] Rezervacija rezervacija)
         {
-           // rezervacija.busenos = true;
+            atsiliepimas.PaslaugaId = id;
+            atsiliepimas.data = DateTime.Now;
+            atsiliepimas.paslaugos_busena = false;
+            rezervacija.busena = "Ivykdyta";
             if (ModelState.IsValid)
             {
-                _context.Add(rezervacija);
+                _context.Add(atsiliepimas);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId", rezervacija.PaslaugaId);
-            ViewData["UserId"] = new SelectList(_context.User, "Id", "Id", rezervacija.UserId);
-            return View(rezervacija);
+            return View(atsiliepimas);
         }
 
         // GET: Rezervacijas/Edit/5

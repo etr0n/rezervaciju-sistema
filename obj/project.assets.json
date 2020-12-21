@@ -2,6 +2,21 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "bootstrap/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "jquery": "1.9.0"
+        }
+      },
+      "BootstrapNotifications/0.3.2": {
+        "type": "package",
+        "dependencies": {
+          "bootstrap": "3.0.0"
+        }
+      },
+      "jQuery/1.9.0": {
+        "type": "package"
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.10": {
         "type": "package",
         "compile": {
@@ -2940,6 +2955,60 @@
     }
   },
   "libraries": {
+    "bootstrap/3.0.0": {
+      "sha512": "d1JUd1ZjfbhGGTxjBSjCLIV+O//hZDcvI0hnaeTL3VHAD+6Z89vgPwV0K/nmPM4hZKq172iPV55lCSpohT6WmA==",
+      "type": "package",
+      "path": "bootstrap/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Content/bootstrap-theme.css",
+        "Content/Content/bootstrap-theme.min.css",
+        "Content/Content/bootstrap.css",
+        "Content/Content/bootstrap.min.css",
+        "Content/Scripts/bootstrap.js",
+        "Content/Scripts/bootstrap.min.js",
+        "Content/fonts/glyphicons-halflings-regular.eot",
+        "Content/fonts/glyphicons-halflings-regular.svg",
+        "Content/fonts/glyphicons-halflings-regular.ttf",
+        "Content/fonts/glyphicons-halflings-regular.woff",
+        "bootstrap.3.0.0.nupkg.sha512",
+        "bootstrap.nuspec"
+      ]
+    },
+    "BootstrapNotifications/0.3.2": {
+      "sha512": "y6NsHHlze5Zgy/wpzW6wA2Wl0KwzpWvxaCTXXyHVu/X/76zkbr6uwjPvhnu81agPDXtlq6adtL0NFsWxdXu/Ow==",
+      "type": "package",
+      "path": "bootstrapnotifications/0.3.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrapnotifications.0.3.2.nupkg.sha512",
+        "bootstrapnotifications.nuspec",
+        "content/Extensions/NotificationExtensions.cs.pp",
+        "content/Views/Shared/_Notifications.cshtml.pp"
+      ]
+    },
+    "jQuery/1.9.0": {
+      "sha512": "bS6OGSd/QL39vKKhATpeehgZDCzV6foRJ52EocEGAB29VetwXkQHN6KQIBlBbW9VJzuHr+rQxHYZ13MnPGQ/vw==",
+      "type": "package",
+      "path": "jquery/1.9.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/jquery-1.9.0-vsdoc.js",
+        "Content/Scripts/jquery-1.9.0.js",
+        "Content/Scripts/jquery-1.9.0.min.js",
+        "Content/Scripts/jquery-1.9.0.min.map",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/jquery-1.9.0.intellisense.js",
+        "Tools/uninstall.ps1",
+        "jquery.1.9.0.nupkg.sha512",
+        "jquery.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.10": {
       "sha512": "s5jFewA59+K/MXnib5eC/WVCDyL4EvSVtBzvXmAlTcZ9iBqqw+4oyFWP5hHy2NZuynjvKDFsokR9zEDrdEwLYA==",
       "type": "package",
@@ -9396,6 +9465,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "BootstrapNotifications >= 0.3.2",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.8",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.10",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.10",
@@ -9446,6 +9516,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "BootstrapNotifications": {
+            "target": "Package",
+            "version": "[0.3.2, )"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.8, )"

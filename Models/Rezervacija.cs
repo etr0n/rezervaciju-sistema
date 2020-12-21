@@ -15,7 +15,7 @@ namespace GrozioSalonuISCF.Models
         public int RezervacijaId { get; set; }
         public DateTime proc_prad { get; set; }
         public DateTime data { get; set; }
-        public bool busenos { get; set; }
+        public string busena { get; set; }
 
         //Foreign key user
         public string UserId { get; set; }

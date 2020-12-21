@@ -51,38 +51,18 @@ namespace GrozioSalonuISCF.Controllers
         // GET: Paslauga/Create
         public IActionResult Create()
         {
-            /*ViewData["DarbuotojasId"] = new SelectList(_context.Darbuotojas, "DarbuotojasId", "DarbuotojasId");
-            ViewData["PaslaugosTipasId"] = new SelectList(_context.PaslaugosTipas, "PaslaugosTipasId", "PaslaugosTipasId");
-            ViewData["SalonasId"] = new SelectList(_context.Salonas, "SalonasId", "SalonasId");*/
+           
             return View();
         }
 
-        // POST: Paslauga/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PaslaugaId,pavadinimas,aprasymas,kaina,trukme,priemones,rekomendacijos,DarbuotojasId,SalonasId,PaslaugosTipasId")] Paslauga paslauga)
-        {
-            
-            if (ModelState.IsValid)
-            {
-                _context.Add(paslauga);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["DarbuotojasId"] = new SelectList(_context.Darbuotojas, "DarbuotojasId", "DarbuotojasId", paslauga.DarbuotojasId);
-            ViewData["PaslaugosTipasId"] = new SelectList(_context.PaslaugosTipas, "PaslaugosTipasId", "PaslaugosTipasId", paslauga.PaslaugosTipasId);
-            ViewData["SalonasId"] = new SelectList(_context.Salonas, "SalonasId", "SalonasId", paslauga.SalonasId);
-            return View(paslauga);
-        }*/
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RezervacijaId,proc_prad,data,busenos,UserId,PaslaugaId")] Rezervacija rezervacija, int id)
+        public async Task<IActionResult> Create([Bind("RezervacijaId,proc_prad,data,busena,UserId,PaslaugaId")] Rezervacija rezervacija, int id)
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             rezervacija.data = DateTime.Now;
-            rezervacija.busenos = true;
+            rezervacija.busena = "Aktyvi";
             rezervacija.PaslaugaId = id;
             rezervacija.UserId = userId;
             if (ModelState.IsValid)
