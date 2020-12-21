@@ -1,0 +1,86 @@
+﻿@model IEnumerable<GrozioSalonuISCF.Models.Salonas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Mano salonas</h1>
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+
+    </p>*@
+@if (ViewBag.Message == null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.pavadinimas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.imones_kodas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.adresas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.tel_nr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ikurimo_data)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Miestas)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pavadinimas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.imones_kodas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.adresas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tel_nr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ikurimo_data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Miestas.pavadinimas)
+                    </td>
+
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.SalonasId">Redaguoti</a>
+                        @*<a asp-action="Details" asp-route-id="@item.SalonasId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.SalonasId">Delete</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@if(ViewBag.Message == "Nera")
+{
+    <p>
+        <a asp-action="Create">Užpildyti salono duomenis</a>
+    </p>
+}

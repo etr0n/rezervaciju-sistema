@@ -1,0 +1,64 @@
+﻿@model IEnumerable<GrozioSalonuISCF.Models.Rezervacija>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Rezervacijų sąrašas</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.data)*@
+                Data
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.proc_prad)*@
+                Procedūros pradžia
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.User)*@
+                Klientas
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Paslauga.pavadinimas)*@
+                Paslauga
+            </th>
+            <th>
+                 @*@Html.DisplayNameFor(model => model.busenos)*@
+                 Rezervacijos būsena
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proc_prad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paslauga.pavadinimas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.busena)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RezervacijaId">Būsenos keitimas</a>
+                @*<a asp-action="Details" asp-route-id="@item.RezervacijaId">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.RezervacijaId">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
