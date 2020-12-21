@@ -12,6 +12,9 @@ namespace GrozioSalonuISCF.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MiestasId { get; set; }
+
+        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
+        [Display(Name = "Miestas")]
         public string pavadinimas { get; set; }
         public ICollection<Salonas> Salonas { get; set; }
     }

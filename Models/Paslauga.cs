@@ -12,11 +12,31 @@ namespace GrozioSalonuISCF.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PaslaugaId { get; set; }
+
+        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
+        [Display(Name = "Paslauga")]
         public string pavadinimas { get; set; }
+
+        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
+        [Display(Name = "Aprašymas")]
         public string aprasymas { get; set; }
+
+        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
+        [Range(0, 9999999, ErrorMessage = "Kaina negali būti neigiama")]
+        [Display(Name = "Kaina")]
         public float kaina { get; set; }
+
+        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
+        [Range(0, 9999999, ErrorMessage = "Trukmė  negali būti neigiama")]
+        [Display(Name = "Trukmė")]
         public float trukme { get; set; }
+
+        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
+        [Display(Name = "Priemonės")]
         public string priemones { get; set; }
+
+        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
+        [Display(Name = "Rekomendacijos")]
         public string rekomendacijos { get; set; }
 
         public ICollection<Rezervacija> Rezervacija { get; set; }

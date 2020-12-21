@@ -13,8 +13,17 @@ namespace GrozioSalonuISCF.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RezervacijaId { get; set; }
+
+        [Display(Name = "Procedūros data")]
+        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
         public DateTime proc_prad { get; set; }
+
+        [Display(Name = "Užklausos data")]
+        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
         public DateTime data { get; set; }
+
+        [Display(Name = "Būsena")]
+        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
         public string busena { get; set; }
 
         //FK atsiliepimo
