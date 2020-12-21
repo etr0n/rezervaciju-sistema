@@ -1,0 +1,71 @@
+﻿@model GrozioSalonuISCF.Models.Darbuotojas
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Redagavimas</h1>
+
+@*<h4>Darbuotojas</h4>*@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DarbuotojasId" />
+            <div class="form-group">
+                <label asp-for="vardas" class="control-label"></label>
+                <input asp-for="vardas" class="form-control" />
+                <span asp-validation-for="vardas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pavarde" class="control-label"></label>
+                <input asp-for="pavarde" class="form-control" />
+                <span asp-validation-for="pavarde" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tel_nr" class="control-label"></label>
+                <input asp-for="tel_nr" class="form-control" />
+                <span asp-validation-for="tel_nr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="adresas" class="control-label"></label>
+                <input asp-for="adresas" class="form-control" />
+                <span asp-validation-for="adresas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="gimimo_data" class="control-label"></label>
+                <input asp-for="gimimo_data" class="form-control"/>
+                <span asp-validation-for="gimimo_data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="stazas" class="control-label"></label>
+                <input asp-for="stazas" class="form-control" />
+                <span asp-validation-for="stazas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pareigos" class="control-label"></label>
+                <input asp-for="pareigos" class="form-control" />
+                <span asp-validation-for="pareigos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalonasId" class="control-label"></label>
+                <select asp-for="SalonasId" class="form-control" asp-items="ViewBag.SalonasId" disabled></select>
+                <span asp-validation-for="SalonasId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Išsaugoti" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Atgal</a>
+</div>
+

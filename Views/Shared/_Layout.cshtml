@@ -32,7 +32,21 @@
                         {
                             @if (User.IsInRole("Salono Admin"))
                             {
-
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Salonas" asp-action="Index">Mano salonas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Ataskaita" asp-action="Index">Ataskaitos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Paslaugas" asp-action="Index">Paslaugos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="RezervacijaSalonas" asp-action="Index">Rezervacijos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Darbuotojas" asp-action="Index">Darbuotojai</a>
+                                </li>
                             }
 
                         }

@@ -1,0 +1,72 @@
+﻿@model GrozioSalonuISCF.Models.Darbuotojas
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Darbuotojas</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.vardas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.vardas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pavarde)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pavarde)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tel_nr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tel_nr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.adresas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.adresas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.gimimo_data)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.gimimo_data)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.stazas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.stazas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pareigos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pareigos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Salonas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Salonas.SalonasId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.DarbuotojasId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
