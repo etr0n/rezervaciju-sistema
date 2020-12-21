@@ -1,0 +1,67 @@
+﻿@model GrozioSalonuISCF.Models.Paslauga
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Naujos paslaugos sukūrimas</h1>
+
+@*<h4>Paslauga</h4>*@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="pavadinimas" class="control-label"></label>
+                <input asp-for="pavadinimas" class="form-control" />
+                <span asp-validation-for="pavadinimas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="aprasymas" class="control-label"></label>
+                <input asp-for="aprasymas" class="form-control" />
+                <span asp-validation-for="aprasymas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="kaina" class="control-label"></label>
+                <input asp-for="kaina" class="form-control" />
+                <span asp-validation-for="kaina" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="trukme" class="control-label"></label>
+                <input asp-for="trukme" class="form-control" />
+                <span asp-validation-for="trukme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="priemones" class="control-label"></label>
+                <input asp-for="priemones" class="form-control" />
+                <span asp-validation-for="priemones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="rekomendacijos" class="control-label"></label>
+                <input asp-for="rekomendacijos" class="form-control" />
+                <span asp-validation-for="rekomendacijos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DarbuotojasId" class="control-label"></label>
+                <select asp-for="DarbuotojasId" class ="form-control" asp-items="ViewBag.DarbuotojasId"></select>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="SalonasId" class="control-label"></label>
+                <select asp-for="SalonasId" class ="form-control" asp-items="ViewBag.SalonasId"></select>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="PaslaugosTipasId" class="control-label"></label>
+                <select asp-for="PaslaugosTipasId" class ="form-control" asp-items="ViewBag.PaslaugosTipasId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Išsaugoti" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Atgal</a>
+</div>
+

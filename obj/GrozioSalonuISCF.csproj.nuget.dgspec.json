@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj": {}
+    "C:\\Users\\edruk\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj": {
+    "C:\\Users\\edruk\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
+        "projectUniqueName": "C:\\Users\\edruk\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
         "projectName": "GrozioSalonuISCF",
-        "projectPath": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
-        "packagesPath": "C:\\Users\\Norte\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Norte\\Documents\\GitHub\\rezervaciju-sistema\\obj\\",
+        "projectPath": "C:\\Users\\edruk\\Documents\\GitHub\\rezervaciju-sistema\\GrozioSalonuISCF.csproj",
+        "packagesPath": "C:\\Users\\edruk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\edruk\\Documents\\GitHub\\rezervaciju-sistema\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Norte\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\edruk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +26,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -38,7 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "BootstrapNotifications": {
               "target": "Package",
@@ -82,6 +80,10 @@
               "target": "Package",
               "version": "[3.2.4, )"
             },
+            "Syncfusion.Pdf.Net.Core": {
+              "target": "Package",
+              "version": "[18.4.0.30, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.2, )"
@@ -105,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

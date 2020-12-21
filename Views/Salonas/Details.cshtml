@@ -1,0 +1,67 @@
+﻿@model GrozioSalonuISCF.Models.Salonas
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Salonas</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pavadinimas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pavadinimas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.imones_kodas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.imones_kodas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.adresas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.adresas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tel_nr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tel_nr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ikurimo_data)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ikurimo_data)
+        </dd>
+     
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Miestas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Miestas.MiestasId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SalonasId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
