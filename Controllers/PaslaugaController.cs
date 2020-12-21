@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using GrozioSalonuISCF.Data;
 using GrozioSalonuISCF.Models;
 using System.Security.Claims;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
 
 namespace GrozioSalonuISCF.Controllers
 {
@@ -60,6 +63,7 @@ namespace GrozioSalonuISCF.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("RezervacijaId,proc_prad,data,busena,UserId,PaslaugaId")] Rezervacija rezervacija, int id)
         {
+
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             rezervacija.data = DateTime.Now;
             rezervacija.busena = "Aktyvi";
@@ -69,10 +73,29 @@ namespace GrozioSalonuISCF.Controllers
             {
                 _context.Add(rezervacija);
                 await _context.SaveChangesAsync();
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("Salonas", "salonas631@gmail.com"));
+                message.To.Add(new MailboxAddress("Klientas", "klientas933@gmail.com"));
+                message.Subject = "Rezervacija patvirtins salono admin ir pranes jums";
+                message.Body = new TextPart("plain")
+                {
+                    Text = "I am using mailit"
+                };
+
+                using (var client = new SmtpClient())
+                {
+                    client.Connect("smtp.gmail.com", 587, false);
+                    client.Authenticate("salonas631@gmail.com", "Salonas12");
+                    client.Send(message);
+                    client.Disconnect(true);
+                }
                 return RedirectToAction(nameof(Index));
             }
-           /* ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId", rezervacija.PaslaugaId);
-            ViewData["UserId"] = new SelectList(_context.User, "Id", "Id", rezervacija.UserId);*/
+            /* ViewData["PaslaugaId"] = new SelectList(_context.Paslauga, "PaslaugaId", "PaslaugaId", rezervacija.PaslaugaId);
+             ViewData["UserId"] = new SelectList(_context.User, "Id", "Id", rezervacija.UserId);*/
+
+
+           
             return View(rezervacija);
         }
 

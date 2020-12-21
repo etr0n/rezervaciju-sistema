@@ -205,7 +205,6 @@ C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Groz
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.RazorAssemblyInfo.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.dll
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.pdb
-C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\GrozioSalonuISCF.StaticWebAssets.xml
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\GrozioSalonuISCF.exe
@@ -414,4 +413,9 @@ C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razo
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Atsiliepimas\Details.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Atsiliepimas\Edit.cshtml.g.cs
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\Atsiliepimas\Index.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\Razor\Views\SendMail\Index.cshtml.g.cs
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 C:\Users\Norte\Documents\GitHub\rezervaciju-sistema\obj\Debug\netcoreapp3.1\GrozioSalonuISCF.csprojAssemblyReference.cache
