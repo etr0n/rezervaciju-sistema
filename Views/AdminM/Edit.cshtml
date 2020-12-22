@@ -1,0 +1,31 @@
+﻿@model GrozioSalonuISCF.Models.Miestas
+
+@{
+    ViewData["Title"] = "Redaguoti";
+}
+
+<h1>Redaguoti</h1>
+
+<h4>Miestas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MiestasId" />
+            <div class="form-group">
+                <label asp-for="pavadinimas" class="control-label"></label>
+                <input asp-for="pavadinimas" class="form-control" />
+                <span asp-validation-for="pavadinimas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Išsaugoti" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Atgal į sąrašą</a>
+</div>
+
