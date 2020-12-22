@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GrozioSalonuISCF.Models.Salonas>
+﻿@model IEnumerable<GrozioSalonuISCF.Models.Paslauga>
 
 @{
     ViewData["Title"] = "Atrinkti salonus";
@@ -9,36 +9,36 @@
 @*<p>
         <a asp-action="Create">Create New</a>
     </p>*@
+<form asp-action="Atranka" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Atrinkti pagal pavadinimą: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Atrinkti" class="btn btn-default" /> |
+            <a asp-action="Atranka">Rodyti viską</a>
+        </p>
+    </div>
+</form>
 <br />
 <table class="table">
     <thead>
         <tr>
             <th>
-                Pavadinimas
-            </th>
-            @*<th>
-                    Įmonės kodas
-                </th>*@
-            <th>
-                Adresas
-            </th>
-            <th>
-                Telefonas
-            </th>
-            <th>
-                El. paštas
-            </th>
-            @*<th>
-                    Įkūrimo data
-                </th>*@
-            @*<th>
-                    @Html.DisplayNameFor(model => model.password)
-                </th>*@
-            <th>
                 Miestas
             </th>
             <th>
-                Paslauga
+                Salonas
+            </th>
+            <th>
+                Pavadinimas
+            </th>
+            <th>
+                Kaina
+            </th>
+            <th>
+                Trukmė
+            </th>
+            <th>
+                Tipas
             </th>
             <th></th>
         </tr>
@@ -48,36 +48,22 @@
         {
             <tr>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Salonas.Miestas.pavadinimas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salonas.pavadinimas)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.pavadinimas)
                 </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.imones_kodas)
-                    </td>*@
                 <td>
-                    @Html.DisplayFor(modelItem => item.adresas)
+                    @Html.DisplayFor(modelItem => item.kaina) &euro;
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.tel_nr)
+                    @Html.DisplayFor(modelItem => item.trukme) val
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.email)
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.ikurimo_data)
-                    </td>*@
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.password)
-                    </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.Miestas.pavadinimas)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Paslauga)
-                </td>
-                <td>
-                    @*<a asp-action="Edit" asp-route-id="@item.SalonasId">Redaguoti</a> |*@
-                    <a asp-action="Details" asp-route-id="@item.SalonasId">Išsamiau</a> @*|
-                        <a asp-action="Delete" asp-route-id="@item.SalonasId">Šalinti</a>*@
+                    @Html.DisplayFor(modelItem => item.PaslaugosTipas.pavadinimas)
                 </td>
             </tr>
         }

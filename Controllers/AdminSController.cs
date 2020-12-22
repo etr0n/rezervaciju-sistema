@@ -185,8 +185,8 @@ namespace GrozioSalonuISCF.Controllers
             PdfFont font2 = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
             //Draw the text.
 
-            graphics.DrawString("Einamojo menesio ataskaita", font, PdfBrushes.Black, new PointF(190, 20));
-            graphics.DrawString("Parengta: " + DateTime.Today.ToShortDateString(), font2, PdfBrushes.Black, new PointF(215, 40));
+            graphics.DrawString("Einamojo menesio ataskaita", font, PdfBrushes.Black, new PointF(180, 100));
+            graphics.DrawString("Parengta: " + DateTime.Today.ToShortDateString(), font2, PdfBrushes.Black, new PointF(205, 130));
 
 
             //Create a PdfGrid.
@@ -197,29 +197,37 @@ namespace GrozioSalonuISCF.Controllers
             var miestas = await _context.Miestas.ToListAsync();
             var salonas = await _context.Salonas.ToListAsync();
             var islaidos = await _context.Islaidos.ToListAsync();
-            foreach (var m in miestas)
+            var paslaugos = await _context.Paslauga.ToListAsync();
+            var rezervacijos = await _context.Rezervacija.ToListAsync();
+            var n = 0;
+            var nr = 1;
+            foreach (var s in salonas)
             {
                 var k = 0;
-                float suma = 0;
-                var ik = 0;
-                foreach (var s in salonas)
+                var kiekis = 0;
+
+                foreach (var p in paslaugos)
                 {
-                    if (m.MiestasId == s.MiestasId)
-                        k++;
-                    foreach (var i in islaidos)
+                    if (s.SalonasId == p.SalonasId)
                     {
-                        if (i.data.Month == DateTime.Today.Month)
+                        k++;
+                        foreach (var r in rezervacijos)
                         {
-                            if (m.MiestasId == s.MiestasId && s.SalonasId == i.SalonasId)
+                            if (p.PaslaugaId == r.PaslaugaId && r.data.Month == DateTime.Today.Month)
                             {
-                                suma += i.suma;
-                                ik++;
+                                kiekis++;
+                            }
+                            if (p.PaslaugaId == r.PaslaugaId && r.data.Day == DateTime.Today.Day)
+                            {
+                                n++;
                             }
                         }
                     }
                 }
-                var row = new { Miestas = m.pavadinimas, Salonu_kiekis = k, Islaidu_kiekis = ik, Islaidu_suma = suma };
+
+                var row = new { Nr = nr, Salonas = s.pavadinimas, Paslaugu_kiekis = k, Rezervaciju_kiekis = kiekis };
                 data.Add(row);
+                nr++;
             }
 
             //Add list to IEnumerable
@@ -227,9 +235,9 @@ namespace GrozioSalonuISCF.Controllers
             //Assign data source.
             pdfGrid.DataSource = dataTable;
             //Draw grid to the page of PDF document.
-            pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 80));
+            pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 200));
 
-           
+            graphics.DrawString("Siandien numatyta paslaugu: " + n, font2, PdfBrushes.Black, new PointF(10, 330));
 
             //Save the PDF document to stream
             MemoryStream stream = new MemoryStream();
@@ -241,17 +249,21 @@ namespace GrozioSalonuISCF.Controllers
             //Defining the ContentType for pdf file.
             string contentType = "application/pdf";
             //Define the file name.
-            string fileName = "Output.pdf";
+            string fileName = "Ataskaita.pdf";
             //Creates a FileContentResult object by using the file contents, content type, and file name.
             return File(stream, contentType, fileName);
 
         }
 
 
-        public async Task<IActionResult> Atranka() 
-        { 
-            var applicationDbContext = _context.Salonas.Include(s => s.Miestas).Include(s => s.Paslauga);
-            return View(await applicationDbContext.ToListAsync());
+        public async Task<IActionResult> Atranka(string searchString)
+        {
+            var pa = from s in _context.Paslauga.Include(s => s.PaslaugosTipas).Include(s => s.Salonas).Include(s => s.Salonas.Miestas) select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                pa = pa.Where(s => s.pavadinimas.Contains(searchString));
+            }
+            return View(await pa.AsNoTracking().ToListAsync());
         }
     }
 }
