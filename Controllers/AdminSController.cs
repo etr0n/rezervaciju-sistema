@@ -197,12 +197,6 @@ namespace GrozioSalonuISCF.Controllers
             var miestas = await _context.Miestas.ToListAsync();
             var salonas = await _context.Salonas.ToListAsync();
             var islaidos = await _context.Islaidos.ToListAsync();
-            string paskirtis = "";
-            string salon = "";
-            string paskirtis2 = "";
-            string salon2 = "";
-            float min = 1000000;
-            float max = 0;
             foreach (var m in miestas)
             {
                 var k = 0;
@@ -221,22 +215,10 @@ namespace GrozioSalonuISCF.Controllers
                                 suma += i.suma;
                                 ik++;
                             }
-                            if (min >= i.suma)
-                            {
-                                min = i.suma;
-                                paskirtis = i.paskirtis;
-                                salon = s.pavadinimas;
-                            }
-                            if (max <= i.suma)
-                            {
-                                max = i.suma;
-                                paskirtis2 = i.paskirtis;
-                                salon2 = s.pavadinimas;
-                            }
                         }
                     }
                 }
-                var row = new { Miestas = m.pavadinimas, Siuvyklu_kiekis = k, Islaidu_kiekis = ik, Islaidu_suma = suma };
+                var row = new { Miestas = m.pavadinimas, Salonu_kiekis = k, Islaidu_kiekis = ik, Islaidu_suma = suma };
                 data.Add(row);
             }
 
@@ -247,8 +229,7 @@ namespace GrozioSalonuISCF.Controllers
             //Draw grid to the page of PDF document.
             pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 80));
 
-            graphics.DrawString("Didziausia islaidu suma: " + max + "euru, paskirtis: " + paskirtis + ", salonas " + salon, font2, PdfBrushes.Black, new PointF(10, 190));
-            graphics.DrawString("Maziausia islaidu suma: " + min + "euru, paskirtis: " + paskirtis2 + ", salonas " + salon, font2, PdfBrushes.Black, new PointF(10, 200));
+           
 
             //Save the PDF document to stream
             MemoryStream stream = new MemoryStream();
