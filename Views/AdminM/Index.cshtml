@@ -1,0 +1,38 @@
+﻿@model IEnumerable<GrozioSalonuISCF.Models.Miestas>
+
+@{
+    ViewData["Title"] = "Miestų sąrašas";
+}
+<div>
+    <h1>Miestų sąrašas</h1>
+
+    <p>
+        <a asp-action="Create">Pridėti naują miestą</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Pavadinimas
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pavadinimas)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MiestasId">Redaguoti</a> |
+                        <a asp-action="Details" asp-route-id="@item.MiestasId">Išsamiau</a> |
+                        <a asp-action="Delete" asp-route-id="@item.MiestasId">Šalinti</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

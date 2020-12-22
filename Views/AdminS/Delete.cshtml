@@ -1,0 +1,75 @@
+﻿@model GrozioSalonuISCF.Models.Salonas
+
+@{
+    ViewData["Title"] = "Šalinti";
+}
+
+<h1>Šalinti</h1>
+
+<h3>Ar tikrai norite pašalinti saloną?</h3>
+<div>
+    <h4>Salonas</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Pavadinimas
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pavadinimas)
+        </dd>
+        <dt class = "col-sm-2">
+            Įmonės kodas
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.imones_kodas)
+        </dd>
+        <dt class = "col-sm-2">
+            Adresas
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.adresas)
+        </dd>
+        <dt class = "col-sm-2">
+            Telefono nr.
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tel_nr)
+        </dd>
+        <dt class = "col-sm-2">
+            El. paštas
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            Įkūrimo data
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ikurimo_data)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.password)
+        </dd>*@
+        <dt class = "col-sm-2">
+            Miestas
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Miestas.pavadinimas)
+        </dd class>
+        <dt class = "col-sm-2">
+            Vartotojas
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="SalonasId" />
+        <input type="submit" value="Šalinti" class="btn btn-danger" /> |
+        <a asp-action="SUser">Atgal į sąrašą</a>
+    </form>
+</div>

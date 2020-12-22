@@ -1,0 +1,24 @@
+﻿@model GrozioSalonuISCF.Models.Miestas
+
+@{
+    ViewData["Title"] = "Išsamiau";
+}
+
+<h1>Išsamiau</h1>
+
+<div>
+    <h4>Miestas</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Pavadinimas
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pavadinimas)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MiestasId">Redaguoti</a> |
+    <a asp-action="Index">Atgal į sąrašą</a>
+</div>

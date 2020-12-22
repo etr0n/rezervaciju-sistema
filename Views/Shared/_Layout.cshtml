@@ -24,7 +24,15 @@
                         {
                             @if (User.IsInRole("Admin"))
                             {
-
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="AdminS" asp-action="Index">Salonų sąrašas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="AdminS" asp-action="Atranka">Salonų atranka</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="AdminM" asp-action="Index">Miestai</a>
+                                </li>
                             }
 
                         }
