@@ -1,75 +1,79 @@
 ﻿@model GrozioSalonuISCF.Models.Paslauga
 
-    @{
-        ViewData["Title"] = "Details";
-    }
+@{
+    ViewData["Title"] = "Details";
+}
 
-    <h1>Užklausos duomenys</h1>
 
-    <div>
-      
-        <hr />
-        <dl class="row">
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.pavadinimas)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.pavadinimas)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.aprasymas)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.aprasymas)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.kaina)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.kaina)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.trukme)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.trukme)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.priemones)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.priemones)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.rekomendacijos)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.rekomendacijos)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Darbuotojas)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Darbuotojas.vardas)  @Html.DisplayFor(model => model.Darbuotojas.pavarde) 
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Salonas)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Salonas.pavadinimas)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.PaslaugosTipas.pavadinimas)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.PaslaugosTipas.pavadinimas)
-            </dd>
-        </dl>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div>
+                <h1>Užklausos duomenys</h1>
+                <br />
+                <br />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.pavadinimas)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.pavadinimas)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.aprasymas)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.aprasymas)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.kaina)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.kaina)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.trukme)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.trukme)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.priemones)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.priemones)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.rekomendacijos)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.rekomendacijos)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Darbuotojas)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Darbuotojas.vardas)  @Html.DisplayFor(model => model.Darbuotojas.pavarde)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Salonas)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Salonas.pavadinimas)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.PaslaugosTipas.pavadinimas)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.PaslaugosTipas.pavadinimas)
+                    </dd>
+                </dl>
+            </div>
+
+            <div>
+                <a asp-action="Index">Atgal</a>
+                <a style="padding-left: 200px" asp-action="Create" asp-route-id="@Model.PaslaugaId" class="text-right">Rezervuoti</a>
+            </div>
+        </div>
     </div>
-
-    <div>
-        <a asp-action="Index">Atgal</a>
-        <a asp-action="Create" asp-route-id="@Model.PaslaugaId">Rezervuoti</a>
-    </div>
-
-
+</div>

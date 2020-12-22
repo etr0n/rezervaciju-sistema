@@ -23,7 +23,7 @@ namespace GrozioSalonuISCF.Models
         public DateTime data { get; set; }
 
         [Display(Name = "Būsena")]
-        [Required(ErrorMessage = "Laukelis negali būti tuščias")]
+        
         public string busena { get; set; }
 
         //FK atsiliepimo
