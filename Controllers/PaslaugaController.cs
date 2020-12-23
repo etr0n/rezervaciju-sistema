@@ -79,8 +79,8 @@ namespace GrozioSalonuISCF.Controllers
                 _context.Add(rezervacija);
                 await _context.SaveChangesAsync();
                 var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("Salonas", "salonas631@gmail.com"));
-                message.To.Add(new MailboxAddress("Klientas", "klientas933@gmail.com"));
+                message.From.Add(new MailboxAddress("Salonas", "******@gmail.com"));
+                message.To.Add(new MailboxAddress("Klientas", "******@gmail.com"));
                 message.Subject = "Rezervacijos užklausos informacija";
                 message.Body = new TextPart("plain")
                 {
@@ -90,7 +90,7 @@ namespace GrozioSalonuISCF.Controllers
                 using (var client = new SmtpClient())
                 {
                     client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("salonas631@gmail.com", "Salonas12");
+                    client.Authenticate("*******@gmail.com", "******");
                     client.Send(message);
                     client.Disconnect(true);
                 }
